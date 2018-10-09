@@ -1,0 +1,200 @@
+@import 'config';
+@import 'menu';
+
+//Headings
+
+
+body {
+    @include background();
+    background: $primary-color;
+
+    color: set-text-color($primary-color);
+    height: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-weight: 400;
+
+    &.lg-heading {
+        font-size: 6rem;
+    }
+
+    &.sm-heading {
+        margin-bottom: 2rem;
+        padding: 0.2rem 1rem;
+        background: rgba(lighten($primary-color, 2), 0.5);
+    }
+}
+
+
+a {
+    color: #000000;
+    text-decoration: none;
+
+}
+
+header {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+}
+
+.text-secondary {
+    color: $secondary-color;
+    
+       
+
+}
+
+main {
+    padding: 4rem;
+    //height: 100%;
+    min-height: calc(100vh - 60px);
+
+    .icons {
+        margin-top: 1rem;
+
+        a {
+            padding: 0.4rem;
+
+            &:hover {
+
+                color: $secondary-color;
+                transition: all 0.5s ease-out;
+                @include easeOut();
+            }
+        }
+    }
+
+    &#home {
+        overflow: hidden;
+        align-items: center;
+
+        h1 {
+            margin-top: 12vh;
+        }
+    }
+}
+
+.about-info {
+    display: grid;
+    grid-gap: 30px;
+    margin-top: 80px;
+    grid-template-areas: 
+    'bioimage bio bio'
+    'info1 info2 info3';
+    grid-template-columns: repeat(3, 1fr)
+}
+
+.bio-image {
+    grid-area: bioimage;
+    margin: auto;
+    margin-bottom: 60px;
+
+    border-radius:30%;
+    border: 5px $secondary-color solid;
+}
+
+.info-image{
+    grid-area: bioimage;
+    width:90%;
+    height: 300px;
+    
+    margin: auto;
+    border-radius:15%;
+    border: 5px $secondary-color solid;
+}
+
+.bio {
+    grid-area: bio;
+    font-size: 1.5rem;
+ 
+}
+.info-1 {
+    grid-area: info1;
+}
+
+.info-2 {
+    grid-area: info2;
+}
+
+
+.info-3 {
+    grid-area: info3;
+  }
+
+//Work projects
+.projects {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+
+    img {
+        width: 100%;
+        height: 250px;
+        border: 3px $secondary-color solid;
+        border-radius: 30px;
+    }
+}
+
+
+.btn {
+    display: block;
+    padding: 0.5rem 1rem;
+    border: 0;
+    margin-bottom: 0.3rem;
+
+    &:hover {
+        background: $secondary-color;
+        //color:set-text-color($secondary-color);
+    }
+}
+
+.btn-dark {
+    @extend .btn;
+}
+
+.btn-light {
+    @extend .btn;
+}
+
+// Contact Page
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem;
+
+    div {
+        font-size: 2rem;
+        border: 3px #fff solid;
+        padding: 1.5rem 2.5rem;
+        margin-bottom: 3rem;
+        @include easeOut;
+
+        //   &:hover {
+        //     padding: 0.5rem 1.5rem;
+        //     background: $secondary-color;
+        //     color:set-text-color($secondary-color);
+        //     span {
+        //       color:set-text-color($secondary-color);
+        //     }
+    }
+}
+
+
+#main-footer {
+    text-align: center;
+    padding: 1rem;
+    background: darken($primary-color, 6);
+    color: set-text-color($primary-color);
+    height: 60px;
+}
+
+@import 'mobile';
